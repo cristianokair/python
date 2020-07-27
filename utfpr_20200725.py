@@ -108,13 +108,118 @@
 # lista2 = [5, 6, 7, 8]
 # print(list(map(lambda x, y: x+y, lista, lista2)))
 
-from functools import reduce
+# from functools import reduce
 
-lista = [1, 3, 5, 7]
-print(reduce(lambda a, b: a+b, lista))
+# lista = [1, 3, 5, 7]
+# print(reduce(lambda a, b: a+b, lista))
 # 16
 # O código acima retorna o somatório dos itens da lista. Três chamadas a função lambda foram realizadas:
 
 # 1, 3 que retornou 4;
 # 4, 5 que retornou 9; e
 # 9, 7 que retornou 16.
+
+##questão 1
+
+# a = {1, 3, 5, 7, 9, 11}
+# b = {0,1,2,3,4}
+
+# x = {'a','b','c'}
+# y = {'b','c'}
+
+# def uniao(A, B):
+#     return A.union(B)
+
+# def interseccao(A, B):
+#     return A.intersection(B)
+
+# def unicos(A,B):
+#     return A.difference(B)
+
+# def teste(A, valor):
+#     if type(valor) is set:
+#         if valor <= A:
+#             return True
+#         else:
+#             return False
+#     elif type(valor) is not set:
+#         if valor in A:
+#             return True
+#         else:
+#             return False
+#     else:
+#         return False
+
+##questão 2
+
+# from functools import reduce
+# somaPares = 0
+# entrada = input().split()
+# entrada = list(map(int, entrada))
+# entrada = list(filter(lambda x: x % 2 == 0,entrada))
+# if(len(entrada) > 0):
+#     entrada.sort()
+#     somaPares = reduce(lambda a,b: a+b, entrada)
+
+# for i in entrada:
+#     print(i,end=' ')
+# print()
+# print(somaPares)
+
+##questão 3
+
+# n = int(input())
+# for i in range(0,n+1):
+#     for j in range(i):
+#         valor = i**2
+#         if j == 0:
+#             print(valor, end=' ')
+#         else:
+#             print(valor + 2*j, end=' ')
+#     print()
+
+
+# n = int(input())
+# for i in range(0,n+1):
+#     for j in range(0,i):
+#         valor = i**2
+#         print(valor + 2*j, end=' ')
+#     if i > 0:
+#         print()
+def pertinencia(id):
+    if id in dicionario:
+        return dicionario[id]
+    else:
+        return 0
+
+dicionario = dict()
+
+while True:
+    cmd = input().split()
+    if cmd[0] == 'set':
+        ID = cmd[1]
+        valor = int(cmd[2])
+        dicionario[ID] = valor
+
+    elif cmd[0] == 'sum':
+        ID1 = cmd[1]
+        ID2 = cmd[2]
+        ID3 = cmd[3]
+        aux1 = pertinencia(ID1)
+        aux2 = pertinencia(ID2)
+        dicionario[ID3] = aux1+aux2
+
+    elif cmd[0] == 'mul':
+        ID1 = cmd[1]
+        ID2 = cmd[2]
+        ID3 = cmd[3]
+        aux1 = pertinencia(ID1)
+        aux2 = pertinencia(ID2)
+        dicionario[ID3] = aux1*aux2
+        
+    elif cmd[0] == 'get':
+        ID1 = cmd[1]
+        aux1 = pertinencia(ID1)
+        print(aux1)
+    elif cmd[0] == 'fim':
+        break
