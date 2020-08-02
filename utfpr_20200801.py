@@ -7,16 +7,20 @@
 # print(minha_soma)
 # print(soma)
 
-# def filtro(fn, it):
-#     it2 = list()
-#     for valor in it:
-#         if fn(valor):
-#             it2.append(valor)
-#     return it2
+def filtro2(fn, it):
+    it2 = list()
+    it3 = list()
+    for valor in it:
+        if fn(valor):
+            it2.append(valor)
+        else:
+            it3.append(valor)
+    return it2, it3
 
-# lista1 = [1, 2, 3, 4, 5, 6, 7, 8]
-# lista2 = filtro(lambda x: x % 2 == 0, lista1)  # mantemos os números pares
-# print(lista2)
+lista1 = [0, 1, 2, 3, 4, 5]
+lista2, lista3 = filtro(lambda x: x % 2 == 1, lista1)  # mantemos os números pares
+print(lista2)
+print(lista3)
 
 # def criar_verificador(tipo):  # função externa
 #     tipo = tipo.lower()
@@ -80,11 +84,11 @@
 
 
 #---------------------------------------------------------------------
-import pandas as pd
-import numpy as np
-from pandas import Series, DataFrame
+# import pandas as pd
+# import numpy as np
+# from pandas import Series, DataFrame
 
-sr1 = Series([1, 3, -5, 7])
+# sr1 = Series([1, 3, -5, 7])
 # print(sr1)
 
 # print(sr1.index)
@@ -96,7 +100,7 @@ sr1 = Series([1, 3, -5, 7])
 # for i in range(len(sr1)):
 #     print(sr1.values[i])
 
-sr2 = Series([1, 3, -5, 7], index=['a', 'b', 'c', 'd'])
+# sr2 = Series([1, 3, -5, 7], index=['a', 'b', 'c', 'd'])
 # print(sr2)
 
 # print(sr1[0])
@@ -110,4 +114,4 @@ sr2 = Series([1, 3, -5, 7], index=['a', 'b', 'c', 'd'])
 
 # print(sr2 * 2) # Multiplicação por escalar
 
-print(np.exp(sr2)) # usando funções do NumPy
+# print(np.exp(sr2)) # usando funções do NumPy
